@@ -33,6 +33,8 @@ class Browser(QMainWindow):
         super().__init__()
         self.settings = QSettings("breeze")
         self.bookmarks = self.settings.value("bookmarks", [])
+        if self.bookmarks is None:
+            self.bookmarks = []
         self.convert_old_bookmark_format()
         self.init_ui()
         self.show()
@@ -46,6 +48,9 @@ class Browser(QMainWindow):
                 updated_bookmarks.append(bookmark)
         self.bookmarks = updated_bookmarks
         self.settings.setValue("bookmarks", self.bookmarks)
+
+    # The rest of your code remains the same
+
 
     def init_ui(self):
         self.init_tabs()
@@ -327,3 +332,4 @@ if __name__ == "__main__":
     window = Browser()
     window.show()
     sys.exit(app.exec_())
+
