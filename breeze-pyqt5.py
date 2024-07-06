@@ -49,9 +49,6 @@ class Browser(QMainWindow):
         self.bookmarks = updated_bookmarks
         self.settings.setValue("bookmarks", self.bookmarks)
 
-    # The rest of your code remains the same
-
-
     def init_ui(self):
         self.init_tabs()
         self.init_toolbar()
